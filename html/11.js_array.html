@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        //한 배열에 문자, 숫자, 객체, boolean, 함수 등 다양한 자료형 포함가능
+        //index = 위치 번호
+        //length = 배열의 길이
+        //push = 배열의 제일 뒤에 요소 추가
+        //pop = 배열 끝의 요소 제거
+        //shift, unshift = 배열 제일 앞의 요소 제거/추가
+
+        //for..of = 베열 순회 객체를 순회하는 for..in과 다름 주의!!
+        //for..of 예제
+        // for(let it of array){
+        //     console.log(it)
+        // }
+
+        let days = ['mon', 'tues', 'wed'];
+        days.push('thur');
+        days.unshift('sun');
+        console.log(days)
+
+        for (let day of days) {
+            console.log(day)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <h2>try to confirm your console</h2>
+    <script>
+        //||(or), &&(and), !(not)
+        //우선순위 && > ||, 따라서 ()를 사용하여 우선순위를 지정해줘야 함
+        const name = "WOOJI";
+        const age = 30;
+        const gender = "M";
+
+        if (name === "WOOJI" || age > 19) {
+            console.log("Pass");
+        } else {
+            console.log("Go Back")
+        }
+
+        if (gender === "F" && (name === "WOOJI" || age > 19)) {
+            console.log("Pass")
+        } else {
+            console.log("Go Back")
+        }
+    </script>
+</body>
+
+</html>

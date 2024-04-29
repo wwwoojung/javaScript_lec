@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        //반복문 loop : for문, while문, do..while문
+        for (let i = 0; i < 10; i++) {
+            console.log(i + 1);
+        }
+
+        let j = 0;
+        while (j < 10) {
+            console.log(j + 1);
+            j++
+        }
+
+        let q = 0;
+        do {
+            console.log(q + 1);
+            q++;
+        } while (q < 10)
+
+        //반복문 빠져나오기
+        //break : 멈추고 반복문을 빠져나옴
+        //continue : 멈추고 다음 반복으로 진행
+        while (true) {
+            let answer = confirm("keep going?")
+            if (!answer) {
+                break
+            }
+        }
+
+        for (let i = 0; i < 10; i++) {
+            if ((i + 1) % 2) {
+                continue
+            }
+            console.log(i + 1)
+        }
+    </script>
+</body>
+
+</html>

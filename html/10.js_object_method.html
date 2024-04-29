@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        //method 객체 프로퍼티로 할당 된 함수
+        function makeObject(name = "GilDong", age = 10) {
+            return {
+                name, //name = name의 축약형
+                age,
+                gender: "M",
+            }
+        }
+
+        function sayHello() {
+            console.log(`Hello, my name is ${this.name}!`)
+        }
+        const Mike = makeObject("Mike", 30);
+        console.log(Mike);
+        Mike.sayHello = sayHello;
+        Mike.sayHello();
+
+
+        const Jane = makeObject("Jane", 26);
+        Jane.gender = "F";
+        Jane.sayName = function () {
+            console.log(`My name is ${this.name}`)
+        }
+        Jane.sayName();
+
+
+
+        //this를 사용할 때는 화살표함수 사용 불가
+        //화살표 함수에서 this는 window를 의미
+        const Tom = {
+            name: 'Tom',
+            age: 15,
+            sayName: function () {
+                console.log(`i\'m ${this.name}!`)
+            }
+        }
+        Tom.sayName();
+    </script>
+</body>
+
+</html>

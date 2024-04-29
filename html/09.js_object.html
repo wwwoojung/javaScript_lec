@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        const Coworker = {
+            name: "wooji",
+            age: 26,
+        }
+
+        console.log(Coworker.name);
+        console.log(Coworker['name']); //대괄호 사용시 따옴표 필요
+
+        //객체 추가 가능
+        Coworker.gender = "F";
+        Coworker["hobby"] = "running"
+        console.log(Coworker);
+
+        //delete를 통한 객체 삭제 가능
+        delete Coworker['gender'];
+        console.log(Coworker);
+
+        //존재하지 않는 잭체는 undefined로 표시
+        console.log(Coworker.birth);
+
+        //in을 사용하여 boolean 자료형으로 객체 존재여부 확인 가능
+        console.log('birth' in Coworker);
+
+        function makeObject(name = "GilDong", age = 10) {
+            return {
+                name, //name = name의 축약형
+                age,
+                gender: "M",
+            }
+        }
+
+        const Mike = makeObject("Mike", 30);
+        console.log(Mike);
+
+        const user = makeObject();
+        user.age = 20;
+        user["gender"] = "F";
+        console.log(user);
+
+
+        //객체 in
+        function isAdult(user) {
+            if (!("age" in user) || (user.age < 20)) {
+                return false
+            }
+            return true
+        }
+
+        console.log(isAdult(user));
+        const jane = {
+            name: "Jane",
+        }
+        console.log(isAdult(jane))
+
+
+        //객체 for..in
+        for (key in Mike) {
+            console.log(key);
+            console.log(Mike[key])
+        }
+    </script>
+</body>
+
+</html>
