@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        //생성자함수
+        //비슷한 객체를 여러개 만들 때 사용
+        //반드시 new를 붙여서 사용해야함
+
+        function User(name, age) {
+            this.name = name;
+            this.age = age;
+            // return {
+            //     name,
+            //     age,
+            // }
+        }
+        let user01 = new User("Mike", 30);
+        console.log(user01);
+    </script>
+</body>
+
+</html>

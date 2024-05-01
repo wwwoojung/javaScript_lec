@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        let num = 3.12345678;
+        Math.ceil(num) // 올림
+        Math.floor(num) // 내림
+        Math.round(num) // 반올림
+        num.toFixed(3) // 소수점 n번째 자리까지 표시, 단 문자열로 반환됨
+        Math.random() // 0 ~ 1 사이의 랜덤 수 생성
+        console.log(Math.floor(Math.random() * 100) + 1);
+        console.log(Number((Math.random() * 100).toFixed(0)) + 1);
+
+        Math.max(); // 최대값
+        Math.min(); // 최소값
+        Math.abs(); // 절대값
+        Math.pow(n, m); // n의 m승
+        Math.sqrt(); // 제곱근 
+
+        //isNaN
+        let x = Number('x')
+        console.log(x);
+        console.log(x == NaN);
+        console.log(x === NaN);
+        console.log(NaN == NaN);
+        //NaN은 자기 자신도 같다고 인지를 못함
+        //NaN을 판별하기 위해 isNaN 사용
+        console.log(isNaN(x));
+
+        //parseInt 숫자로 시작하는 문자열에서 숫자를 숫자형으로 반환
+        let margin = '10px';
+        console.log(parseInt(margin));
+        //문자로 시작하는 경우 2번째 인수에 숫자를 넣어서 숫자로 변환 가능
+        let redColor = 'f3';
+        console.log(parseInt(redColor, 16));
+        console.log(parseInt('11', 2))
+    </script>
+</body>
+
+</html>

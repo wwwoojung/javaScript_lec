@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        //Symbol형은 유일성을 보장한다.
+        const id = Symbol('id'); //new를 붙이지 않음
+
+        //Symbol형은 Object.keys/valuse로 읽을 수 없음, for..in문도 적용 불가능
+
+        //Symbol.for : 전역심볼
+        //하나의 심볼만 보장받을 수 있음
+        //없으면 생성하고, 있으면 기존에 존재하는 심볼을 가져옴
+        //Symbol.for 메서드는 하나를 생성한 뒤 키를 통해 같은 Symbol을 공유
+        //Symbol.keyFor을 사용하면 이름을 얻을 수 있음, 전역 심볼만 해당
+
+        //전역 심볼이 아닌 심볼은 .description 메서드를 통해 이름을 알 수 있음
+
+        //Object.getOwnPropertySymbols() => Symbol형만 추출 가능
+        //reflect.ownKeys => Symbol형을 포함한 key 값 출력
+    </script>
+</body>
+
+</html>

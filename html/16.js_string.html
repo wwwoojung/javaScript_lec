@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        length // 문자열 길이
+        console.log('Hello'.length);
+        //문자열도 index의 위치로 한 글자만 찾기 가능, but 바꾸기는 불가능
+
+        let str = "My name is WOOJI";
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+
+        console.log(str.indexOf('name')); // 해당 문자열을 포함한다면 시작 위치 반환, 포함하지 않는다면 -1 반환
+        // if뮨 사용시 주의, 해당 문자열을 제일 처음에 포함할 경우 0을 반환하면서 false로 인식하여 동작하지않음
+        if (str.indexOf('My') > -1) {
+            console.log('My가 포함된 문장입니다.')
+        }
+        // 위와 같이 사용해야 함
+
+        console.log(str.includes('WOOJI')); // 문자열의 포함 여부를 Boolean형으로 반환
+
+        console.log(str.slice(1, -2)); // 해당 범위의 문자열 반환
+        console.log(str.substring(0, 4)); // 해당 범위의 문자열 반환, 음수를 허용하지 않음, 입력 순서를 바꿔도 됨
+        console.log(str.substr(0, 7)); // 시작 위치부터 길이 만큼의 문자열 반환
+
+        console.log(str.trim()) // 문자열 앞, 뒤의 공백 제거
+
+        console.log(str.repeat(3)); // 문자열 반복
+
+        // 문자열도 비교 가능
+    </script>
+</body>
+
+</html>

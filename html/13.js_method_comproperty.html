@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        // let a = 'age';
+        // const user = {
+        //     name: 'Mike',
+        //     age: 30, // [a] : 30 으로 작성해도 같은 의미 => computed property!!!!!
+        // }
+        //computed property : [ 1 + 4 ] = 5, [ "안녕" + "하세요"] = "Hello" 와 같이 직접적인 식도 사용가능
+
+
+
+
+        //객체 Method
+
+        //Object.assign() => 객체 복제
+        // const cloneUser = user; //이 방식은 복제가 아닌 하나의 객체에 2가지 참조값이 걸리는 것, 따라서 하나의 객체 요소를 바뀌면 다른 객체 요소도 바뀜
+        // const newUser = Object.assign({}, user); // 앞의 빈객체는 초기값, 여러 개의 객체 복제 가능
+
+        //Object.key() => 키 배열 반환, 객체의 키를 배열로 반환
+        //Object.values() => 값 배열 반환, 객체의 값을 배열로 반환
+        //Object.entries() => 키와 값의 배열 반환, 객체의 키와 값을 묶어서 배열로 반환
+        //Object.fromEntries() => 키와 값의 배열을 객체로 반환
+
+        let n = "name";
+        let a = "age";
+        const user = {
+            [n]: 'Mike',
+            [a]: 30,
+        };
+        console.log(user);
+
+        function makeObj(key, val) {
+            return {
+                [key]: val,
+            }
+        }
+
+        const obj = makeObj("나이", 33)
+
+    </script>
+</body>
+
+</html>
