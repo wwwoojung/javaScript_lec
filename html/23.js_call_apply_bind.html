@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        // 함수의 this 값을 바꿀 수 있는 call, apply, bind 함수
+
+        //call => 모든 함수에서 사용할 수 있으며, this를 특정값으로 지정할 수 있다.
+        const mike = {
+            name: 'Mike',
+        };
+        const tom = {
+            name: 'Tom',
+        };
+
+        function showThisName() {
+            console.log(this.name);
+        }
+
+        showThisName(mike); // in here, 'this' meams windows so console says nothig
+        showThisName.call(mike);
+
+        function update(birth, occupation) {
+            this.birthYear = birth;
+            this.occupation = occupation;
+        }
+
+        update.call(mike, 1999, 'developer');
+        console.log(mike);
+
+
+        //apply => 함수 매개 변수를 처리하는 방법을 제외하면 call과 완전히 같다
+        //apply는 매개변수를 배열로 받음
+        update.apply(tom, [2002, 'singer']);
+        console.log(tom);
+
+
+        const nums = [1, 2, 3, 4, 5];
+        // const minNum = Math.min(...nums);
+        // const maxNum = Math.max(...nums);
+        const minNum = Math.min.call(null, ...nums)
+        const maxNum = Math.max.apply(null, nums)
+        console.log(minNum);
+        console.log(maxNum);
+
+
+        //bind는 this 값을 영구히 바꿀 수 있음
+        const jane = {
+            name: 'Jane',
+        }
+
+        const updateJane = update.bind(jane);
+        updateJane(1994, 'dancer');
+        console.log(jane);
+    </script>
+</body>
+
+</html>

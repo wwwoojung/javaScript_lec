@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        // Closure
+        // 함수와 렉시컬 환경의 조합
+        // 함수가 생성될 당시의 외부 변수를 기억
+        // 생성 이후에도 계속 접근 가능
+
+        function sumNum(a) {
+            return function (b) {
+                return a + b;
+            }
+        }
+
+        let numSum3 = sumNum(3);
+        console.log(numSum3(7));
+        console.log(numSum3(12));
+    </script>
+</body>
+
+</html>

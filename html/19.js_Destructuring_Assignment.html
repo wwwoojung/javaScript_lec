@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        // 구조분해 할당 구문은 배열이나 객체의 속성을 분해해서 그 값을 변수에 담을 수 있게 하는 표현식
+        // 자료 길이 차이로 할당을 받지 못하면 undefined 반환
+        // 초기값 지정 가능, 할당을 받지 못하면 초기값 반환
+        // let [x = 3, y = 4, z =ㅜ5] = [1, 2]
+        //console.log(x); // 1
+        //console.log(y); // 2
+        //console.log(z); // 5
+
+        let users = ['Mike', 'Tom', 'James'];
+        // let [user1, user2, user3] = users;
+        let [user1, , user3] = users; // 공백을 사용하여 일부 반환값 무시 가능
+        console.log(user1);
+        console.log(user3);
+
+        let str = 'Mike-Jane-Tom';
+        let [p1, p2, p3] = str.split('-');
+        console.log(p3);
+
+        let a = 1;
+        let b = 2;
+        console.log(a, b);
+        // 할당 값 서로 바꾸기
+        let c = a;
+        a = b; b = c;
+        console.log(a, b);
+
+        //구조분해에서는 간단하게 변형가능
+        [a, b] = [b, a];
+        console.log(a, b);
+
+
+
+        // 객체도 구조분해 가능
+        let friends = { name: 'Mike', age: 30 };
+        let { name, age } = friends; // 순서를 신경쓰지 않아도 됨
+        console.log(age);
+
+        let { name: userName, age: userAge } = friends; // key 이름 변경 가능
+        console.log(userName);
+    </script>
+</body>
+
+</html>
