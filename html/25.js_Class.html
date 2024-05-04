@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        class User {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            showName() {
+                console.log(`My name is ${this.name}`);
+            }
+            // prototype으로 들어감
+        }
+
+        // class는 new 없이 실행할 수 없음
+        const tom = new User('Tom', 19);
+        console.log(tom);
+        tom.showName()
+
+        //class에서는 for..in문에서 prototype은 제외됨
+
+        //class에서의 상속은 extends 사용
+        class Car {
+            constructor(color) {
+                this.color = color;
+                this.wheels = 4;
+            }
+
+            drive() {
+                console.log('drive..');
+            }
+
+            stop() {
+                console.log('STOP!');
+            }
+        }
+
+        // class Bmw extends Car {
+        //     park() {
+        //         console.log('PARK')
+        //     }
+        // }
+
+        // const z4 = new Bmw('blue');
+        // console.log(z4);
+
+
+        //Method overriding => 상속받은 메서드를 재정의하면 기존 내용을 덮어씀
+        // class Bmw extends Car {
+        //     stop() {
+        //         super.stop(); // 기존 메서드를 사용할려면 super 사용
+        //         console.log('ERROR');
+        //     }
+        //     park() {
+        //         console.log('PARK')
+        //     }
+        // }
+        // const z4 = new Bmw('blue');
+        // z4.stop();
+
+
+        // constructor overriding
+        // 부모생성자를 상속받있을 때 생성자를 오버라이딩 하려면 반드시 부모생성자를 먼저 선언해줘야 함
+        class Bmw extends Car {
+            constructor(color) {
+                super(color); // super을 사용하여 부모생성자 먼저 선언하기
+                this.navigation = 1;
+            }
+            park() {
+                console.log('PARK')
+            }
+        }
+
+        const z4 = new Bmw('blue');
+        console.log(z4);
+    </script>
+</body>
+
+</html>

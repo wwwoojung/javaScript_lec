@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        const car = {
+            wheels: 4,
+            drive() {
+                console.log('drive..')
+            }
+        }
+
+        const bmw = {
+            color: 'red',
+            navigation: 1,
+        };
+        const benz = {
+            color: 'black',
+        }
+        const audi = {
+            color: 'blue',
+        }
+
+        bmw.__proto__ = car;
+        benz.__proto__ = car;
+        audi.__proto__ = car;
+
+        console.log(bmw);
+        console.log(benz);
+        console.log(audi);
+
+
+        //prototype을 통해 상속을 계속 받을 수 있음
+        const x5 = {
+            color: 'white',
+            name: 'X5'
+        }
+        x5.__proto__ = bmw;
+        //위의 경우 car의 속성을 상속 받은 bmw를 상속 받음 
+        console.log(x5)
+        console.log(x5.drive);
+
+        for (key in x5) {
+            console.log(key);
+        }
+
+        //상속받지않고 객체가 가진 property를 반황하려면 Object.keys 또는 hasOwnProperty 사용
+        console.log(Object.keys(x5));
+        for (key in x5) {
+            if (x5.hasOwnProperty(key)) {
+                console.log(key);
+            }
+        }
+
+
+        // 생성자 함수 활용하기
+        const Bmw = function (color) {
+            this.color = color;
+        }
+        const x6 = new Bmw('red');
+
+        //생성자 함수에서 prototype을 상속하는 방법
+        Bmw.prototype.wheels = 4;
+        Bmw.drive = function () {
+            console.log('drive!');
+        }
+        //x6.__proto__ = car; 과 같은 의미
+
+        console.log(x6);
+
+        console.log(x6 instanceof Bmw); // instanceof 해당 생성자 함수로 생성된 것인지 여부를 알려줌
+        console.log(x6.constructor === Bmw);
+
+
+        //closure를 활용하여 원래 정보 기억하기
+        const Audi = function (name) {
+            const n = name;
+            this.getName = function () {
+                console.log(n);
+            }
+        }
+
+        const audi2 = new Audi('audi2');
+        audi2.getName();
+        audi2.name = 'audi3';
+        audi2.getName();
+    </script>
+</body>
+
+</html>

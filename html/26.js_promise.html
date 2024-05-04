@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Lecture</title>
+</head>
+
+<body>
+    <script>
+        // 한 사건에 대해서 성공할 경우와 실패할 경우 다른 동작을 하는 경우
+        // 어떤 일이 완료되었을 때 실행되는 함수 => callback함수
+        // const pr = new Promise((resolve, reject) => {
+
+        // })
+        // promise 함수는 state, result를 가짐
+        // 초기 값 state = pending(대기) , result = undefined
+        // resolve(value) => state = fulfilled(이행됨), result = value
+        // reject(error) => state = rejected(거부됨), result = error 
+
+        // const pr = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('OK')
+        //     }, 3000)
+        // })
+
+        // pr.then(
+        //     function (result) {
+        //         console.log(result)
+        //     }, // 이행되었을 때 실행
+        // ).catch(
+        //     function (err) {
+        //         console.log("FAILED!")
+        //     }, // 거부되었을 때 실행
+        // ).finally(
+        //     function () {
+        //         console.log('END!')
+        //     }
+        // )
+
+
+
+        //examples 콜백 지옥
+        // const f1 = (callback) => {
+        //     setTimeout(() => {
+        //         console.log('first item is ordered!');
+        //         callback();
+        //     }, 1000)
+        // }
+        // const f2 = (callback) => {
+        //     setTimeout(() => {
+        //         console.log('second item is ordered!');
+        //         callback();
+        //     }, 3000)
+        // }
+        // const f3 = (callback) => {
+        //     setTimeout(() => {
+        //         console.log('third item is ordered!');
+        //         callback();
+        //     }, 2000)
+        // }
+
+        // console.log('Start!')
+        // f1(() => {
+        //     f2(() => {
+        //         f3(() => {
+        //             console.log('End!')
+        //         })
+        //     })
+        // });
+
+        const f1 = () => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    res('first item is ordered!');
+                }, 1000);
+            });
+        }
+        const f2 = (message) => {
+            console.log(message)
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('second item is ordered!');
+                }, 3000);
+            });
+        }
+        const f3 = (message) => {
+            console.log(message)
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('third item is ordered!')
+                }, 2000);
+            });
+        }
+
+        //Promise chaining => 중간에 reject를 만나면 finally가 실행됨
+        // console.log('Start');
+        // f1().then((res) => f2(res))
+        //     .then((res) => f3(res))
+        //     .then((res) => {
+        //         console.log(res)
+        //     }).finally(() => {
+        //         console.log('End!')
+        //     })
+
+        //Promise.all => 하나라도 reject 되면 에러를 반환
+        console.time('x')
+        Promise.all([f1(), f2(), f3()]).then((res) => {
+            console.log(res)
+            console.timeEnd('x');
+        })
+
+        //Promise.race
+        console.time('y');
+        Promise.race([f1(), f2(), f3()]).then((res) => {
+            console.log(res);
+            console.timeEnd('y')
+        })
+
+
+    </script>
+</body>
+
+</html>
