@@ -12,6 +12,8 @@
         // Generator는 함수를 정지시키고 next, return, throw를 실행할 때마다 진행
         // 함수 뒤에 *을 붙혀서 사용, yield라는 명령어로 제어
         // Symbol.iterator 메서드를 가짐
+        // for..of 사용가능
+        // Generator에 함수를 사용하려면 yield 뒤에 *을 붙혀서 사용
 
         function* fn() {
             console.log(1);
@@ -25,6 +27,7 @@
         const a = fn();
 
 
+        // iterator.next는 배열, 객체도 사용 가능
         let arr = [1, 2, 3, 4, 5];
         const it = arr[Symbol.iterator]();
     </script>
